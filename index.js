@@ -9,6 +9,7 @@ const cors = require('cors')
 app.use(bodyParser.json())
 app.use(morgan(':method :url :status :response-time :postdata'))
 app.use(cors())
+app.use(express.static('build'))
 
 let persons = [
   {
