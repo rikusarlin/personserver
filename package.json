@@ -1,0 +1,21 @@
+{
+  "name": "personserver",
+  "version": "0.0.1",
+  "description": "Helsinki University MOOC Fullstack open \"person server\", chapter 3",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "author": "rikusarlin",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.0"
+  }
+}
