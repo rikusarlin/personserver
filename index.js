@@ -76,11 +76,11 @@ app.get('/info', (req, res) => {
   res.send(resString)
 })
 
-app.get('/persons', (req, res) => {
+app.get('/api/persons', (req, res) => {
   res.json(persons)
 })
 
-app.get('/persons/:id', (req, res) => {
+app.get('/api/persons/:id', (req, res) => {
   const id = Number(req.params.id)
   const person = findById(id)
   if(person){
@@ -90,7 +90,7 @@ app.get('/persons/:id', (req, res) => {
   }
 })
 
-app.delete('/persons/:id', (req, res) => {
+app.delete('/api/persons/:id', (req, res) => {
   const id = Number(req.params.id)
   const person = findById(id)
   if(person){
@@ -129,7 +129,7 @@ const findByName = (name) => {
 }
 
 
-app.post('/persons', (req, res) => {
+app.post('/api/persons', (req, res) => {
   const body = req.body
   if (!body.name) {
     return res.status(400).json({ 
