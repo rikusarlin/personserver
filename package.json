@@ -7,11 +7,12 @@
     "start": "node index.js",
     "watch": "nodemon index.js",
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
-    "build:ui": "rmdir /q /s build && cd ..\fullstack\osa2\puhelinluettelo",
+    "build:ui": "rm -rf build && cd ../fullstack/osa2/puhelinluettelo && npm run build --prod && cp -r build ../../../personserver/",
     "deploy": "git push master",
-    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",    
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push && npm run deploy",
     "logs:prod": "heroku logs --tail"
   },
+  "repository": "https://github.com/rikusarlin/personserver",
   "author": "rikusarlin",
   "license": "MIT",
   "dependencies": {
