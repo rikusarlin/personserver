@@ -1,0 +1,8 @@
+put http://localhost:3001/api/persons/5de41629c47b080434d9577e
+Content-Type: application/json
+Accept: application/json
+
+{ 
+    "name": "Uusi henkilö",
+    "number": "2324"
+}
