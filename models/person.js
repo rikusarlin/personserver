@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-var uniqueValidator = require('mongoose-unique-validator');
+var uniqueValidator = require('mongoose-unique-validator')
 
 const url = process.env.MONGODB_URI
 // mongodb+srv://fullstack:<password>@cluster0-xy1ns.mongodb.net/phonebook?retryWrites=true&w=majority
@@ -7,7 +7,7 @@ const url = process.env.MONGODB_URI
 console.log('connecting to', url)
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology:true, useFindAndModify:false, useCreateIndex:true })
-  .then(result => {
+  .then(() => {
     console.log('connected to MongoDB')
   })
   .catch((error) => {
@@ -15,19 +15,19 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology:true, useFindA
   })
 
 const personSchema = new mongoose.Schema({
-   name: {
-     type: String,
-     minlength: 3,
-     required: true,
-     unique: true
-   },
-   number: {
-     type: String,
-     minlength: 8,
-     required: true
-   }
+  name: {
+    type: String,
+    minlength: 3,
+    required: true,
+    unique: true
+  },
+  number: {
+    type: String,
+    minlength: 8,
+    required: true
+  }
 })
-personSchema.plugin(uniqueValidator, { type: 'unique-validator' });
+personSchema.plugin(uniqueValidator, { type: 'unique-validator' })
 
 // Muokataan palautuvaa skeemaa vähemmän tekniseksi...
 personSchema.set('toJSON', {
@@ -37,5 +37,5 @@ personSchema.set('toJSON', {
     delete returnedObject.__v
   }
 })
-  
+
 module.exports = mongoose.model('Person', personSchema)
